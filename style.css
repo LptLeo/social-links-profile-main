@@ -1,0 +1,82 @@
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: hsl(0, 0%, 100%);
+}
+
+body {
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  background-color: hsl(0, 0%, 8%);
+}
+@media (min-width: 1024px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 350px;
+  width: 100%;
+  margin: 2rem auto 0;
+  background-color: hsl(0, 0%, 12%);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+@media (min-width: 1024px) {
+  main {
+    max-width: 400px;
+  }
+}
+main .profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .profile-info img {
+  width: 6rem;
+  border-radius: 100%;
+  margin-bottom: 1.5rem;
+}
+main .profile-info h2 {
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin: 0.5rem 0;
+}
+main .profile-info span {
+  color: hsl(75, 94%, 57%);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+main .profile-info p {
+  margin: 0.25rem;
+}
+main ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+main ul li {
+  background-color: hsl(0, 0%, 20%);
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+main ul li a {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=style.css.map */
