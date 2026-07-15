@@ -32,6 +32,18 @@ body {
     }
 }
 
+@keyframes loadScreen {
+    from {
+        transform: translateY(-15px);
+        opacity: 0%;
+    }
+
+    to {
+        opacity: 100%;
+        transform: translateY(0px);
+    }
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -42,6 +54,7 @@ main {
     background-color: $grey-800;
     padding: 2rem;
     border-radius: 1rem;
+    animation: loadScreen 1s ease;
 
     @media (min-width: 1024px) {
         max-width: 400px;
@@ -81,15 +94,67 @@ main {
         padding: 0;
 
         li {
-            background-color: $grey-700;
-            padding: 1.2rem;
-            border-radius: 0.5rem;
+            display: flex;
             margin: 1rem 0;
 
             a {
+                background-color: $grey-700;
+                padding: 1.2rem;
+                border-radius: 0.5rem;
+                text-align: center;
+                width: 100%;
                 text-decoration: none;
                 font-weight: 700;
+                transition: background-color 0.2s ease;
+
+                &:hover {
+                    background-color: $green;
+                }
             }
         }
     }
+}
+
+.clock {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    animation: slideDown 0.3s ease-in;
+    margin-top: 8px;
+}
+
+@keyframes add-value {
+    from {
+        transform: translateY(-1.2rem);
+        opacity: 50%;
+        scale: 0.75;
+    }
+
+    to {
+        transform: translateY(0px);
+        opacity: 100%;
+        scale: 1;
+    }
+}
+
+@keyframes remove-value {
+    from {
+        transform: translateY(0px);
+        opacity: 100%;
+        scale: 1;
+    }
+
+    to {
+        transform: translateY(1.2rem);
+        opacity: 10%;
+        scale: 0.75;
+    }
+}
+
+.new-value {
+    animation: add-value 0.2s ease-in;
+}
+
+.last-value {
+    animation: remove-value 0.2s ease-in;
 }
