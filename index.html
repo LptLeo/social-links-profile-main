@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- displays site properly based on user's device -->
-
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
     <link rel="stylesheet" href="style.css">
 
@@ -13,15 +11,36 @@
 </head>
 
 <body>
-    <div class="clock">
-        <div id="hours">00</div>:
-        <div id="minutes">00</div>:
-        <div id="seconds">00</div>
+    <div class="clock-container">
+        <div class="clock">
+            <div id="hours">00</div>
+            <div id="minutes">00</div>
+            <div id="seconds">00</div>
+        </div>
+    </div>
+
+    <div id="modal">
+        <div>
+            <button type="button" class="close-modal">×</button>
+            <form>
+                <input type="text" placeholder="Seu nome">
+                <input type="text" placeholder="Sua cidade e país">
+                <input type="text" placeholder="Description">
+                <input type="text" placeholder="Link do seu GitHub">
+                <input type="text" placeholder="Link do seu Linkedin">
+                <input type="text" placeholder="Link do seu Principal Projeto">
+                <input type="text" placeholder="Link do seu Currículo">
+            </form>
+            <button type="submit" class="btn-save">Salvar</button>
+        </div>
     </div>
 
     <main>
+        <button type="button" id="config">⚙</button>
         <div class="profile-info">
-            <img src="./assets/images/avatar-jessica.jpeg" alt="Profile Avatar" class="avatar">
+            <button type="button" class="avatar-container">
+                <img src="./assets/images/avatar-jessica.jpeg" alt="Profile Avatar" class="avatar">
+            </button>
             <h2>Jessica Randall</h2>
             <span>London, United Kingdom</span>
         </div>
@@ -33,16 +52,13 @@
                 <a href="">GitHub</a>
             </li>
             <li>
-                <a href="">Frontend Mentor</a>
-            </li>
-            <li>
                 <a href="">LinkedIn</a>
             </li>
             <li>
-                <a href="">Twitter</a>
+                <a href="">Main Project</a>
             </li>
             <li>
-                <a href="">Instagram</a>
+                <a href="">Curriculum</a>
             </li>
         </ul>
     </main>

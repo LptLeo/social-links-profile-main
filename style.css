@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Inter";
   src: url("./assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
@@ -45,6 +46,7 @@ main {
   padding: 2rem;
   border-radius: 1rem;
   animation: loadScreen 1s ease;
+  position: relative;
 }
 @media (min-width: 1024px) {
   main {
@@ -56,10 +58,33 @@ main .profile-info {
   flex-direction: column;
   align-items: center;
 }
-main .profile-info img {
+main .profile-info .avatar-container {
   width: 6rem;
   border-radius: 100%;
   margin-bottom: 1.5rem;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+main .profile-info .avatar-container .avatar {
+  width: 6rem;
+  border-radius: 100%;
+  border: none;
+  opacity: 100%;
+  transition: opacity 0.25s ease-in;
+}
+main .profile-info .avatar-container .avatar:hover {
+  opacity: 80%;
+}
+main .profile-info .avatar-container:hover::before {
+  content: "🖉";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: hsl(0, 0%, 100%);
 }
 main .profile-info h2 {
   font-weight: 600;
@@ -96,20 +121,110 @@ main ul li a {
 main ul li a:hover {
   background-color: hsl(75, 94%, 57%);
 }
+main #config {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
 
-.clock {
+#modal {
+  position: fixed;
+  background-color: hsla(0, 0%, 13%, 0.95);
+  border: 1px solid hsla(0, 0%, 11%, 0.9);
+  border-radius: 12px;
+  min-width: 300px;
+  max-width: 600px;
+  width: 100%;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#modal > div {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 3rem 2rem 2rem;
+}
+#modal > div .close-modal {
+  font-size: 1.5rem;
+  color: #bbb;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 4px;
+  right: 12px;
+}
+#modal > div .close-modal:hover {
+  color: red;
+}
+#modal > div .btn-save {
+  background-color: hsl(0, 0%, 9%);
+  border: 1px solid hsl(0, 0%, 8.5%);
+  padding: 0.5rem 0.75rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+#modal > div form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+#modal > div form input {
+  padding: 0.5rem;
+  border: 1px solid hsl(0, 0%, 11%);
+  background-color: hsl(0, 0%, 10%);
+  color: #bbb;
+  outline: none;
+  border-radius: 4px;
+  width: 100%;
+  transition: border 0.3s ease-out;
+}
+#modal > div form input:focus {
+  border: 1px solid hsl(0, 0%, 17%);
+}
+
+.show-modal {
+  display: block;
+}
+
+.hide-modal {
+  display: none;
+  animation: add-value 0.2s ease-in;
+}
+
+.clock-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 8px;
+  width: 7rem;
+  padding: 0.5rem;
+  border: 1px solid #4b4b4b;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.clock-container .clock {
   display: flex;
   justify-content: center;
   font-size: 1.2rem;
-  animation: slideDown 0.3s ease-in;
-  margin-top: 8px;
+}
+.clock-container .clock > div {
+  border: 1px solid #555555;
+  border-top: none;
+  border-bottom: none;
 }
 
 @keyframes add-value {
   from {
     transform: translateY(-1.2rem);
     opacity: 50%;
-    scale: 0.75;
+    scale: 0.85;
   }
   to {
     transform: translateY(0px);
@@ -126,15 +241,17 @@ main ul li a:hover {
   to {
     transform: translateY(1.2rem);
     opacity: 10%;
-    scale: 0.75;
+    scale: 0.85;
   }
 }
 .new-value {
   animation: add-value 0.2s ease-in;
+  padding: 4px;
 }
 
 .last-value {
   animation: remove-value 0.2s ease-in;
+  padding: 4px;
 }
 
 /*# sourceMappingURL=style.css.map */

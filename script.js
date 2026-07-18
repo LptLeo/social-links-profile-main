@@ -1,3 +1,7 @@
+//
+//  CLOCK
+//
+
 const hoursContainer = document.getElementById('hours');
 const minutesContainer = document.getElementById('minutes');
 const secondsContainer = document.getElementById('seconds');
@@ -41,3 +45,43 @@ function updateAndAnimate(container, value) {
 }
 
 setInterval(updateTime, 1000);
+
+//
+//  MODAL
+//
+
+const configElement = document.getElementById('config');
+const modalContainer = document.getElementById('modal')
+
+modalContainer.classList.remove('show-modal');
+modalContainer.classList.add('hide-modal');
+
+let activeModal = false;
+configElement.addEventListener('click', () => {
+    activeModal = !activeModal;
+    console.log(activeModal);
+
+    if (activeModal) {
+        modalContainer.classList.remove('hide-modal');
+        modalContainer.classList.add('show-modal');
+    }
+
+    if (!activeModal) {
+        modalContainer.classList.remove('show-modal');
+        modalContainer.classList.add('hide-modal');
+    }
+});
+
+const closeModalElement = document.querySelector('.close-modal');
+
+closeModalElement.addEventListener('click', () => {
+    activeModal = false;
+
+    modalContainer.classList.remove('show-modal');
+    modalContainer.classList.add('hide-modal');
+})
+
+//
+//  PROFILE
+//
+
